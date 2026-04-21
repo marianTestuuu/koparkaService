@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeoKop</title>
+
+<!-- SEO -->
+<meta name="description" content="GeoKop – usługi koparką, wykopy i prace ziemne.">
+<meta name="keywords" content="koparka, wykopy, prace ziemne, wynajem koparki">
+<meta name="author" content="GeoKop">
+
+<style>
+body{margin:0;font-family:Arial;background:#fffbe6;color:#665c00}
+header{background:#f9a825;color:#000;padding:20px;text-align:center;position:relative}
+.logo{position:absolute;top:20px;right:20px}
+.container{padding:20px;max-width:900px;margin:auto}
+.contact{background:#fff3cd;padding:15px;border-radius:8px}
+footer{background:#f9a825;color:#000;text-align:center;padding:10px}
+input, textarea{width:100%;padding:10px;margin-top:8px;margin-bottom:12px;border:1px solid #ccc;border-radius:6px;font-family:inherit}
+button{background:#f9a825;border:none;padding:10px 20px;border-radius:6px;cursor:pointer}
+button:hover{opacity:0.9}
+</style>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+(function(){
+  emailjs.init("3vP7foAHRrRyUEGPZ"); // ← podmień
+})();
+
+function sendEmail() {
+  const params = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    message: document.getElementById('message').value
+  };
+
+  emailjs.send("service_3067b5q", "template_o31cv5j", params)
+    .then(function(response) {
+      alert("Wiadomość została wysłana!");
+    }, function(error) {
+      alert("Błąd wysyłania: " + JSON.stringify(error));
+    });
+}
+</script>
+
+</head>
+<body>
+<header>
+<h1>GeoKop</h1>
+<p>Usługi koparką</p>
+<div class="logo">🚜 GK</div>
+</header>
+<div class="container">
+<h2>O nas</h2>
+<p>Wykopy, niwelacja terenu i prace ziemne na najwyższym poziomie.</p>
+
+<div class="contact">
+<h2>Kontakt</h2>
+<p>Email: kontakt@geokop.pl</p>
+
+<h3>Formularz kontaktowy</h3>
+<input type="text" id="name" placeholder="Imię i nazwisko" required>
+<input type="email" id="email" placeholder="Mail" required>
+<textarea id="message" rows="5" placeholder="Zapytanie" required></textarea>
+<button onclick="sendEmail()">Wyślij</button>
+</div>
+
+</div>
+<footer>© 2026 GeoKop</footer>
+</body>
+</html>
