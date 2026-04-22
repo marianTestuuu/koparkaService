@@ -12,60 +12,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
+*{box-sizing:border-box}
 body{margin:0;font-family:'Montserrat',sans-serif;background:#fff;color:#111}
-
-*{box-sizing:border-box;}
 
 /* HEADER */
 header{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 40px;
-color:#fff;
-z-index:10;
+position:absolute;top:0;left:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 40px;color:#fff;z-index:10;
 }
-
-nav a{
-margin-left:25px;
-text-decoration:none;
-color:#fff;
-font-weight:600;
-}
-
-.logo img{
-width:80px;
-border-radius:50%;
-background:#fff;
-padding:5px;
-}
+nav a{margin-left:25px;text-decoration:none;color:#fff;font-weight:600}
+.logo img{width:140px;border-radius:50%;background:#fff;padding:10px}
 
 /* HERO */
 .hero{
-background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
-url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80');
-background-size:cover;
-background-position:center;
-color:#fff;
-padding:140px 20px 100px;
-text-align:center;
+background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;background-position:center;color:#fff;padding:140px 20px 100px;text-align:center;
 }
-
 .hero h1{font-size:56px;font-weight:800}
 .hero p{font-size:20px;margin:20px 0}
 .hero span{color:#f9a825}
-
 .btn{background:#f9a825;padding:14px 30px;border:none;border-radius:30px;font-weight:600;cursor:pointer}
 
 .section{max-width:1200px;margin:auto;padding:80px 20px}
 
 /* SERVICES */
 .services{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;margin-top:40px}
-
 .card{border-radius:16px;overflow:hidden;box-shadow:0 10px 25px rgba(0,0,0,.08);text-align:center}
 .card img{width:100%;height:160px;object-fit:cover}
 .card h3{margin:15px 0 5px}
@@ -74,20 +44,22 @@ text-align:center;
 /* CONTACT */
 .contact{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
 
+.form{border:1px solid #eee;padding:25px;border-radius:12px}
+.form-row{display:flex;gap:12px}
+.form-row input{flex:1}
 .form input,.form textarea{width:100%;padding:14px;margin-bottom:12px;border-radius:8px;border:1px solid #ddd}
-.form button{background:#f9a825;border:none;padding:14px;border-radius:30px;font-weight:600;cursor:pointer} .form button:hover{opacity:0.9}
+.form button{background:#f9a825;border:none;padding:12px 18px;border-radius:30px;font-weight:600;cursor:pointer}
 
 footer{background:#000;color:#fff;text-align:center;padding:40px}
 
 @media(max-width:900px){
 .services{grid-template-columns:1fr 1fr}
 .contact{grid-template-columns:1fr}
+.form-row{flex-direction:column}
 }
 </style>
 
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-(function(){emailjs.init("3vP7foAHRrRyUEGPZ");})();
 function sendEmail(){
 const name=document.getElementById('name').value.trim();
 const email=document.getElementById('email').value.trim();
@@ -98,17 +70,12 @@ if(!name || !email || !message){
   return;
 }
 
-const params={name,email,message};
+alert('Zapytanie wysłane');
 
-emailjs.send("service_3067b5q","template_o31cv5j",params)
-.then(()=>{
-  alert("Zapytanie wysłane");
-  document.getElementById('name').value='';
-  document.getElementById('email').value='';
-  document.getElementById('message').value='';
-})
-.catch(err=>alert("Błąd: "+JSON.stringify(err)));
-};
+document.getElementById('name').value='';
+document.getElementById('email').value='';
+document.getElementById('message').value='';
+}
 </script>
 
 </head>
@@ -125,79 +92,3 @@ emailjs.send("service_3067b5q","template_o31cv5j",params)
 
 <section class="hero" id="home">
 <h1>Usługi koparką</h1>
-<p>Solidnie. <span>Terminowo.</span> Profesjonalnie.</p>
-<button class="btn" onclick="document.getElementById('kontakt').scrollIntoView()">Skontaktuj się</button>
-</section>
-
-<section class="section" id="uslugi">
-<h2>Co możemy dla Ciebie zrobić?</h2>
-
-<div class="services">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd">
-<h3>Wykopy</h3>
-<p>Fundamenty, instalacje, przygotowanie terenu</p>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0">
-<h3>Niwelacja</h3>
-<p>Wyrównanie i przygotowanie działki</p>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-<h3>Instalacje</h3>
-<p>Przyłącza wodno-kanalizacyjne</p>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d">
-<h3>Prace ziemne</h3>
-<p>Kompleksowe roboty ziemne</p>
-</div>
-</div>
-</section>
-
-<section class="section contact" id="kontakt">
-<div>
-<h2>Masz pytania?<br>Napisz do nas!</h2>
-<p>Odpowiadamy szybko i konkretnie.</p>
-
-<p style="display:flex;align-items:center;gap:10px;margin-top:20px;">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f9a825" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.63a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.45-1.15a2 2 0 0 1 2.11-.45c.85.3 1.73.51 2.63.63A2 2 0 0 1 22 16.92z"/>
-  </svg>
-  +48 123 456 789
-</p>
-
-<p style="display:flex;align-items:center;gap:10px;">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f9a825" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M4 4h16v16H4z"/>
-    <polyline points="22,6 12,13 2,6"/>
-  </svg>
-  kontakt@geokop.pl
-</p>
-</div>
-
-<div class="form">
-<input type="text" id="name" placeholder="Imię i nazwisko">
-<input type="email" id="email" placeholder="Mail">
-<textarea id="message" rows="5" placeholder="Zapytanie"></textarea>
-
-<div style="text-align:right;">
-<button onclick="sendEmail()" style="display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:30px;width:auto;">
-  Wyślij zapytanie
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="22" y1="2" x2="11" y2="13"></line>
-    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-  </svg>
-</button>
-</div>
-</div>
-</section>
-
-<footer>© 2026 GeoKop</footer>
-
-</body>
-</html>
