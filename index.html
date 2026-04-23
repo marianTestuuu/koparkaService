@@ -26,12 +26,58 @@ nav a{margin-left:25px;text-decoration:none;color:#fff;font-weight:600}
 background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
 url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80');
 background-size:cover;background-position:center;
-color:#fff;padding:140px 10px 80px;text-align:center;
+color:#fff;
+padding:140px 10px 80px;
+display:flex;
+align-items:flex-start;
 }
-.hero h1{font-size:56px;font-weight:800}
+.hero-content{
+max-width:550px;
+margin-left:40px;
+margin-top:80px; /* ODSTĘP POD LOGO */
+}
+.hero h1{font-size:56px;font-weight:800;margin:0}
 .hero p{font-size:20px;margin:20px 0}
 .hero span{color:#f9a825}
-.btn{background:#f9a825;padding:14px 30px;border:none;border-radius:30px;font-weight:600;cursor:pointer}
+
+.hero-line{
+width:50px;
+height:3px;
+background:#f9a825;
+margin:15px 0 20px;
+}
+
+.hero-desc{
+font-size:15px;
+line-height:1.6;
+margin-bottom:25px;
+color:#ddd;
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+gap:10px;
+background:#f9a825;
+padding:14px 24px;
+border:none;
+border-radius:30px;
+font-weight:600;
+cursor:pointer;
+}
+
+.btn-icon{
+width:28px;
+height:28px;
+border-radius:50%;
+background:#000;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#f9a825;
+font-weight:800;
+font-size:16px;
+}
 
 .section{max-width:1100px;margin:auto;padding:40px 10px}
 .section:first-of-type{padding-top:60px}
@@ -79,6 +125,8 @@ text-align:center;padding:40px
 .services{grid-template-columns:1fr 1fr}
 .contact{grid-template-columns:1fr}
 .form-row{flex-direction:column}
+.hero{padding:120px 10px 60px}
+.hero-content{margin-left:10px;margin-top:100px}
 }
 </style>
 
@@ -114,16 +162,30 @@ emailjs.send("service_3067b5q","template_o31cv5j",params)
 <header>
 <div class="logo"><img src="logo.png"></div>
 <nav>
-<a href="#home">Start</a>
+<a href="#onas">O nas</a>
 <a href="#uslugi">Usługi</a>
 <a href="#kontakt">Kontakt</a>
 </nav>
 </header>
 
 <section class="hero" id="home">
+<div class="hero-content">
 <h1>Usługi koparką</h1>
+
 <p>Solidnie. <span>Terminowo.</span> Profesjonalnie.</p>
-<button class="btn" onclick="document.getElementById('kontakt').scrollIntoView()">Skontaktuj się</button>
+
+<div class="hero-line"></div>
+
+<div class="hero-desc">
+Oferujemy kompleksowe prace ziemne z wykorzystaniem nowoczesnego sprzętu.
+Działamy szybko, efektywnie i z dbałością o każdy szczegół.
+</div>
+
+<button class="btn" onclick="document.getElementById('kontakt').scrollIntoView()">
+<div class="btn-icon">&gt;</div>
+Skontaktuj się z nami
+</button>
+</div>
 </section>
 
 <section class="section" id="onas">
